@@ -1,0 +1,89 @@
+/* ================================
+   ROOT CONTAINER FIX (FULL WIDTH)
+================================ */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* ================================
+   FULL BACKGROUND IMAGE
+================================ */
+.app-container {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("./assets/medical-bg.jpeg");
+  background-size: cover;           /* fills entire screen */
+  background-position: center;      /* centers the img */
+  background-repeat: no-repeat;     /* no repeating */
+  background-attachment: fixed;     /* beautiful parallax effect */
+  display: flex;
+  flex-direction: column;
+}
+
+/* (Optional) A dark overlay for better readability */
+.app-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); /* adjust if needed */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Make all content appear ABOVE overlay */
+.header,
+.nav-bar,
+.main-content,
+.footer,
+.card {
+  position: relative;
+  z-index: 2;
+}
+
+/* ================================
+   YOUR ORIGINAL CSS BELOW
+================================ */
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.9);  /* keeps card visible on bg */
+  border-radius: 12px;
+}
+
+.read-the-docs {
+  color: #888;
+}
